@@ -1,52 +1,33 @@
-# Cloud Enabled Deployment In Action with AWS
+# 📚 Course Service (Spring Boot + GCP MySQL)
 
-This repository contains four projects:
+A **Spring Boot application** for managing course data, backed by a **MySQL database** hosted on **Google Cloud SQL**.  
+The project leverages **Spring Profiles** (`local`, `gcp`) to seamlessly switch between local development and cloud deployment.
 
-- course-service (Spring Boot + MySQL)
-- student-service (Spring Boot + MongoDB)
-- media-service (Spring Boot + Local file storage, can be extended to S3/MinIO)
-- frontend-app (React + TypeScript)
+---
 
-## Backend Services
+## 🚀 Demo on GCP
+🎥 [Watch the Demo Video](https://drive.google.com/file/d/1TIt2MHD6NvnaeV7orNlNHk-Pa2PqWT8p/view?usp=sharing)
 
-### 1. course-service
-- Entity: Course(id, name, duration)
-- Endpoints:
-  - GET /courses
-  - GET /courses/{id}
-  - POST /courses
-  - DELETE /courses/{id}
-- Default port: 8081
-- Configure MySQL settings
+---
 
-### 2. student-service
-- Document: Student(registrationNumber, fullName, address, contact, email)
-- Endpoints:
-  - GET /students
-  - GET /students/{id}
-  - POST /students
-  - DELETE /students/{id}
-- Default port: 8082
-- Configure MongoDB settings
+## 🛠️ Prerequisites
 
-### 3. media-service
-- Resource: files
-- Endpoints:
-  - POST /files (multipart/form-data: file)
-  - GET /files (list)
-  - GET /files/{id} (fetch)
-  - DELETE /files/{id} (delete)
-- Default port: 8083
-- Uses local disk storage at `./data/media` by default (override with env var `MEDIA_STORAGE_DIR`).
+- **Java 21 (LTS)**
+- **Spring Boot 3+**
+- **MySQL Database** (Local or GCP Cloud SQL)
+- **Google Cloud SQL Instance** (for cloud profile)
+- **Maven/Gradle** (for build and dependency management)
 
-## Frontend (frontend-app)
-- React + TypeScript + MUI + Axios + Vite app with 3 sections: Courses, Students, Media
-- Scripts:
-  - npm run dev (Vite dev server)
-  - npm run build (TypeScript build + Vite build)
-  - npm run preview (Preview built app)
+---
 
-## Build
+## ⚙️ Database Configuration
 
-- Backend: run `mvn -q -e -DskipTests package` at repo root to build services.
-- Frontend: run `npm install` then `npm run dev` inside `frontend-app`.
+### 🔹 Local Profile (`application-local.properties`)
+Use this when running locally with a MySQL instance:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/course_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=root
+spring.datasource.password=your_local_password
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
