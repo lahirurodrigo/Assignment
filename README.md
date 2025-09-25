@@ -4,6 +4,12 @@ A **Spring Boot application** for managing course data, backed by a **MySQL data
 The project leverages **Spring Profiles** (`local`, `gcp`) to seamlessly switch between local development and cloud deployment.
 
 ---
+## 👤 Personal Details
+
+- *Name*: Lahiru Malshan Rodrigo
+- *Batch*: Panadura
+- *Student ID*: 2301671063
+---
 
 ## 🚀 Demo on GCP
 🎥 [Watch the Demo Video](https://drive.google.com/file/d/1TIt2MHD6NvnaeV7orNlNHk-Pa2PqWT8p/view?usp=sharing)
